@@ -38,11 +38,11 @@ class Core
         if (getenv('http_proxy')) {
           $opts = array(
               'http' => array (
-                'proxy'=> getenv('http_proxy'),
+                'proxy'=> str_replace('http://', 'tcp://', getenv('http_proxy')),
                 'request_fulluri' => true
               ),
               'https' => array (
-                'proxy'=> getenv('https_proxy'),
+                'proxy'=> str_replace('https://', 'tcp://', getenv('http_proxy')),
                 'request_fulluri' => true
               )
           );
